@@ -1,4 +1,4 @@
-package com.saodevblog.app.ws;
+package com.saodevblog.app.ws.io.repositories;
 
 import com.saodevblog.app.ws.io.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends CrudRepository<UserEntity, Long> {
     UserEntity findUserByEmail(String email);
+    UserEntity findByUserId(String id);
 }
