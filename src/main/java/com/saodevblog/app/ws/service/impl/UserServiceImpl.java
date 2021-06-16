@@ -1,14 +1,17 @@
 package com.saodevblog.app.ws.service.impl;
 
 import com.saodevblog.app.ws.exception.UserServiceException;
-import com.saodevblog.app.ws.io.repositories.UserRepository;
 import com.saodevblog.app.ws.io.entity.UserEntity;
+import com.saodevblog.app.ws.io.repositories.UserRepository;
 import com.saodevblog.app.ws.service.UserService;
 import com.saodevblog.app.ws.shared.Utils;
 import com.saodevblog.app.ws.shared.dto.UserDto;
 import com.saodevblog.app.ws.ui.model.response.ErrorMessages;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -104,5 +108,24 @@ public class UserServiceImpl implements UserService {
         if(entity == null) throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
 
         userRepo.delete(entity);
+    }
+
+    @Override
+    public List<UserDto> getUsers(int page, int limit) {
+        List<UserDto> returnVal = new ArrayList<>();
+
+        Pageable pageable = PageRequest.of(page, limit);
+
+        Page<UserEntity> usersPage = userRepo.findAll(pageable);
+        List<UserEntity> users = usersPage.getContent();
+
+        for(UserEntity entity: users) {
+            UserDto dto = new UserDto();
+            BeanUtils.copyProperties(entity,dto);
+            returnVal.add(dto);
+        }
+
+
+        return returnVal;
     }
 }

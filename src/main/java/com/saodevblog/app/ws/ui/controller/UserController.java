@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("users") // http://localhost:8080/users
 public class UserController {
@@ -71,5 +74,23 @@ public class UserController {
         userService.deleteUser(id);
 
         return model;
+    }
+
+    @GetMapping
+    public List<UserRest> getUsers(@RequestParam(value="page", defaultValue = "0") int page,
+                                   @RequestParam(value="limit", defaultValue = "25") int limit) {
+        List<UserRest> returnVal = new ArrayList<>();
+
+        List<UserDto> userDtos = userService.getUsers(page, limit);
+
+        for(UserDto dto : userDtos) {
+            UserRest model = new UserRest();
+            BeanUtils.copyProperties(dto, model);
+            returnVal.add(model);
+        }
+
+
+
+        return returnVal;
     }
 }
