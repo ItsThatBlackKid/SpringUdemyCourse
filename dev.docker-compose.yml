@@ -1,0 +1,37 @@
+version: "3.6"
+volumes:
+  app_vol:
+
+networks:
+  saokanneh:
+
+services:
+  mysql:
+    container_name: ${DB_ENV_NAME}
+    restart: always
+    image: mysql:latest
+    networks:
+      - saokanneh
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PWD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_DATABASE=mobile_app_ws
+    volumes:
+      - app_vol:/var/lib/mysql
+  udemy_spring_app:
+    container_name: udemy_spring_app
+    build:
+      context: .
+      dockerfile: .dev.app.dockerfile
+    depends_on:
+      - mysql
+    restart: unless-stopped
+    environment:
+      - DB_ENV_NAME=${DB_ENV_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    links:
+      - mysql
+    networks:
+      - saokanneh
