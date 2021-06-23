@@ -6,7 +6,7 @@ before_script:
 build:
   script:
     - source .env
-    - docker-compose build --no-cache
+    - docker-compose build
   stage: build
   only:
     refs:
