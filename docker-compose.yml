@@ -11,6 +11,10 @@ services:
   udemy_spring_app:
     container_name: udemy_spring_app
     build:
+      args:
+        DB_ENV_NAME: ${DB_ENV_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASS: ${DB_PASS}
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
@@ -19,7 +23,7 @@ services:
     environment:
       - VIRTUAL_HOST=spring_app.saokanneh.com
       - VIRTUAL_PORT=8080
-      - DB_ENV_NAME=spring_app_db
+      - DB_ENV_NAME
       - DB_USER
       - DB_PASS
     networks:

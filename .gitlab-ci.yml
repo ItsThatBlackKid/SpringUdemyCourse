@@ -2,6 +2,17 @@ before_script:
   - docker version
   - docker-compose version
 
+build:
+  script:
+    - source .env
+    - docker-compose build --no-cache
+  stage: build
+  only:
+    refs:
+      - master
+  tags:
+    - build
+
 deploy:
   script:
     - source .env

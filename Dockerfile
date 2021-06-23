@@ -13,4 +13,4 @@ COPY src ./src
 
 RUN ./mvnw install
 
-CMD ["java", "-jar", "target/mobile-app-ws-0.1.jar"]
+ENTRYPOINT ["java", "-jar", "target/mobile-app-ws-0.1.jar"]
