@@ -4,6 +4,7 @@ before_script:
 
 deploy:
   script:
+    - source .env
     - docker-compose up -d
   stage: deploy
   only:
