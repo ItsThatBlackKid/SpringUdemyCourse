@@ -25,9 +25,9 @@ services:
     environment:
       - VIRTUAL_HOST: spring.saokanneh.com
       - VIRTUAL_PORT: 8080
-      - DB_ENV_NAME
-      - DB_USER
-      - DB_PASS
+      - DB_ENV_NAME:
+      - DB_USER:
+      - DB_PASS:
     external_links:
       - spring_app_db:spring_app_db
       - nginx-proxy:nginx-proxy
