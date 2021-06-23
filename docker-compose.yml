@@ -4,6 +4,7 @@ volumes:
 
 networks:
   saokanneh:
+    driver: bridge
     external: true
     name: saokanneh
 
