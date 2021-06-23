@@ -2,6 +2,12 @@ FROM openjdk:16-alpine
 
 WORKDIR /app
 
-COPY "target/mobile-app-ws-0.1.jar" ./
+COPY .mvn ./
 
-CMD ["java", "-jar", "mobile-app-ws-0.1.jar"]
+COPY mvnw pom.xml ./
+
+COPY src ./
+
+RUN ./mvnw install
+
+CMD ["java", "-jar", "target/mobile-app-ws-0.1.jar"]
