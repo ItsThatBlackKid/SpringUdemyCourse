@@ -11,8 +11,6 @@ RUN source .env
 
 COPY src ./src
 
-RUN ./mvnw package -DSkipTests
-
-RUN ./mvnw install
+RUN ./mvnw install -DskipTests
 
 ENTRYPOINT ["java", "-jar", "target/mobile-app-ws-0.1.jar"]
