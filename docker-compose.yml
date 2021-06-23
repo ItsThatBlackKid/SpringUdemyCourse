@@ -20,7 +20,7 @@ services:
       - VIRTUAL_HOST=spring_app.saokanneh.com
       - VIRTUAL_PORT=8080
       - DB_ENV_NAME=spring_app_db
-      - DB_USER=${DB_USER}
-      - DB_PASS=${DB_PASS}
+      - DB_USER
+      - DB_PASS
     networks:
       - saokanneh
