@@ -2,11 +2,10 @@ FROM openjdk:16-alpine
 
 WORKDIR /app
 
-COPY .mvn ./
-
+COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 
-COPY src ./
+COPY src ./src
 
 RUN ./mvnw install
 
