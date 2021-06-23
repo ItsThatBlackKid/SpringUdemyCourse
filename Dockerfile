@@ -2,14 +2,6 @@ FROM openjdk:16-alpine
 
 WORKDIR /app
 
+COPY "target/mobile-app-ws-0.1.jar" ./
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-
-RUN dos2unix mvnw
-
-COPY src ./src
-
-RUN ./mvnw dependency:go-offline
-
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["java", "-jar", "mobile-app-ws-0.1.jar"]
