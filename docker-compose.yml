@@ -3,7 +3,7 @@ volumes:
   app_vol:
 
 networks:
-  default:
+  saokanneh:
     external: true
     name: saokanneh
 
@@ -29,3 +29,4 @@ services:
       - DB_PASS
     external_links:
       - spring_app_db:spring_app_db
+      - nginx-proxy:nginx-proxy
