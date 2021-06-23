@@ -18,6 +18,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    networks:
+      - saokanneh
     expose:
       - 8080
     network_mode: bridge
