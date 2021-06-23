@@ -8,21 +8,6 @@ networks:
     name: saokanneh
 
 services:
-  mysql:
-    container_name: spring_app_db
-    restart: always
-    image: mysql:latest
-    networks:
-      - saokanneh
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PWD}
-      - MYSQL_USER=${DB_USER}
-      - MYSQL_PASSWORD=${DB_PASS}
-      - MYSQL_DATABASE=mobile_app_ws
-    expose:
-      - '3306'
-    volumes:
-      - app_vol:/var/lib/mysql
   udemy_spring_app:
     container_name: udemy_spring_app
     build:
