@@ -11,7 +11,7 @@ build:
     refs:
       - master
   tags:
-    - auth
+    - build
 
 deploy:
   script:
@@ -21,4 +21,4 @@ deploy:
     refs:
       - master
   tags:
-    - auth
+    - deploy
