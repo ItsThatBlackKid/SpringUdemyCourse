@@ -2,8 +2,12 @@ FROM openjdk:16-alpine
 
 WORKDIR /app
 
+
+COPY .env ./
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
+
+RUN source .env
 
 COPY src ./src
 
