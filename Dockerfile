@@ -11,7 +11,7 @@ RUN source .env
 
 COPY src ./src
 
-RUN ./mvnw package -Dmaven.test.skip=true
+RUN ./mvnw package -DSkipTests
 
 RUN ./mvnw install
 

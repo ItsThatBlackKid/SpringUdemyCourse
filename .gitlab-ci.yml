@@ -1,6 +1,7 @@
 before_script:
   - docker version
   - docker-compose version
+  - docker network inspect saokanneh
 
 build:
   script:
@@ -23,3 +24,4 @@ deploy:
       - master
   tags:
     - deploy
+
