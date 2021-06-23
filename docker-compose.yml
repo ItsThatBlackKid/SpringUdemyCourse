@@ -7,7 +7,7 @@ networks:
 
 services:
   mysql:
-    container_name: ${DB_ENV_NAME}
+    container_name: spring_app_db
     restart: always
     image: mysql:latest
     networks:
@@ -32,7 +32,7 @@ services:
     environment:
       - VIRTUAL_HOST=spring_app.saokanneh.com
       - VIRTUAL_PORT=8080
-      - DB_ENV_NAME=${DB_ENV_NAME}
+      - DB_ENV_NAME=spring_app_db
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
     links:
