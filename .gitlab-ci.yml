@@ -2,17 +2,6 @@ before_script:
   - docker version
   - docker-compose version
 
-build:
-  script:
-
-    - docker-compose build --no-cache
-  stage: build
-  only:
-    refs:
-      - master
-  tags:
-    - build
-
 deploy:
   script:
     - docker-compose up -d
