@@ -4,6 +4,8 @@ volumes:
 
 networks:
   saokanneh:
+    external: true
+    name: saokanneh
 
 services:
   mysql:
@@ -17,6 +19,8 @@ services:
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_DATABASE=mobile_app_ws
+    expose:
+      - '3306'
     volumes:
       - app_vol:/var/lib/mysql
   udemy_spring_app:
