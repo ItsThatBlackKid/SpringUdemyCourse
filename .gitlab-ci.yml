@@ -1,0 +1,24 @@
+before_script:
+  - docker version
+  - docker-compose version
+
+build:
+  script:
+    - ./mvnw install
+    - docker-compose build --no-cache
+  stage: build
+  only:
+    refs:
+      - master
+  tags:
+    - auth
+
+deploy:
+  script:
+    - docker-compose up -d
+  stage: deploy
+  only:
+    refs:
+      - master
+  tags:
+    - auth
