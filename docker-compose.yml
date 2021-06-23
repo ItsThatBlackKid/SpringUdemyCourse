@@ -26,5 +26,7 @@ services:
       - DB_ENV_NAME
       - DB_USER
       - DB_PASS
+    external_links:
+      - spring_app_db:spring_app_db
     networks:
       - saokanneh
