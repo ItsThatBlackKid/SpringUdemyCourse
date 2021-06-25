@@ -7,5 +7,6 @@ phases:
     commands:
       - mvn install
 artifacts:
-  - target/mobile-app-ws-0.1.jar
+  files:
+    - target/mobile-app-ws-0.1.jar
 

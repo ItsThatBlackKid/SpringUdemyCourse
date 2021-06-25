@@ -6,7 +6,7 @@ before_script:
 build:
   script:
     - source .env
-    - docker-compose build
+    - ./mvnw install
   stage: build
   only:
     refs:
