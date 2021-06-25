@@ -1,0 +1,30 @@
+version '3.6'
+
+networks:
+  saokanneh:
+    driver: bridge
+    name: saokanneh
+
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    networks:
+      - saokanneh
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  spring_app_db:
+    container_name: spring_app_db
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=mobile_app_ws
+      - MYSQL_USER=saokan
+      - MYSQL_PASSWORD=Pokemon!2468
+    networks:
+      - saokanneh
+    working_dir: /mobile_app_ws
+    volumes:
+      - /var/mysql/mobile_app_ws:./
