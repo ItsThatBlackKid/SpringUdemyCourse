@@ -2,7 +2,6 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /
 artifacts:
   files:
     - appspec.yml
