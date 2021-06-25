@@ -2,6 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
+  - destination: /var/www/spring_app
 artifacts:
   files:
     - appspec.yml
