@@ -8,6 +8,7 @@ artifacts:
     - docker-compose.yml
     - Dockerfile
     - target/mobile-app-ws-0.1.jar
+    - - scripts/
 
 hooks:
   ApplicationStart:
