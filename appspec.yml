@@ -1,5 +1,10 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: ./
     destination: /var/ww/html
+
+hooks:
+  ApplicationStart:
+    - location: docker-compose up -d
+    - runas: root

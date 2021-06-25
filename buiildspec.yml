@@ -1,0 +1,12 @@
+version 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: coretto16
+  build:
+    commands:
+      - mvn install
+artifacts:
+  - target/mobile-app-ws-0.1.jar
+
