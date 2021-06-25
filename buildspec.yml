@@ -2,7 +2,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - ./mvnw install -DSkipTests
+      - ./mvnw install -DskipTests
 artifacts:
   files:
     - target/mobile-app-ws-0.1.jar
