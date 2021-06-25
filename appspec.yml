@@ -13,4 +13,4 @@ artifacts:
 hooks:
   ApplicationStart:
     - location: scripts/start.sh
-    - runas: root
+      runas: root
