@@ -3,6 +3,12 @@ os: linux
 files:
   - source: /
     destination: /
+artifacts:
+  files:
+    - appspec.yml
+    - docker-compose.yml
+    - Dockerfile
+    - target/mobile-app-ws-0.1.jar
 
 hooks:
   ApplicationStart:
