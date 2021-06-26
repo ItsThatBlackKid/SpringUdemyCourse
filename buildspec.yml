@@ -10,6 +10,7 @@ artifacts:
     - docker-compose.yml
     - Dockerfile
     - scripts/*
+    - .env
 cache:
   paths:
     - 'target/*'

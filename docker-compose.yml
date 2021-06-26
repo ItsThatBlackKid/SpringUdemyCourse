@@ -12,10 +12,6 @@ services:
   udemy_spring_app:
     container_name: udemy_spring_app
     build:
-      args:
-        DB_ENV_NAME: ${DB_ENV_NAME}
-        DB_USER: ${DB_USER}
-        DB_PASS: ${DB_PASS}
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped

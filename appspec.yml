@@ -6,6 +6,7 @@ files:
 artifacts:
   files:
     - appspec.yml
+    - .env
     - docker-compose.yml
     - Dockerfile
     - target/mobile-app-ws-0.1.jar
